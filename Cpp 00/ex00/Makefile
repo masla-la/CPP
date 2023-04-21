@@ -1,0 +1,31 @@
+NAME = Megaphone
+
+FILES = megaphone
+
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
+
+CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+RM = rm -rf
+
+all: $(NAME)
+
+.cpp.o: $(SRC)
+	@$(CC) $(CFLAGS) -c -o $@ $^
+
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@echo "Done"
+
+clean:
+	@$(RM) $(OBJ)
+	@echo "Clean"
+
+fclean: clean
+	@$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean res
+.SILENT:
