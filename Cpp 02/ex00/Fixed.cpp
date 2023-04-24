@@ -17,7 +17,7 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed &obj)
+Fixed &Fixed::operator=(Fixed const &obj)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	setRawBits(obj.getRawBits());
