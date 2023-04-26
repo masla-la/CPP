@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:21:44 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/26 12:33:02 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 
@@ -11,20 +23,16 @@ void	readfd(std::string oldfd, std::string newfd, std::string oldstr, std::strin
 
 	if (!fd)
 	{
-		std::cout << oldfd << ": Do not exist." << std::endl;
+		std::cout << oldfd << ": Do not exist you don't have permissions." << std::endl;
 		return ;
 	}
 	l_oldstr = oldstr.length();
 	l_newstr = newstr.length();
-	std::getline(fd, line);
-	if (line.empty())
-	{
-		std::cout << oldfd << ": is empty." << std::endl;
-		return ;
-	}
+	line = "";
 	std::ofstream	fd2(newfd);
-	while (!line.empty())
+	while (1)
 	{
+		std::getline(fd, line);
 		if (!line.find(oldstr))
 		{
 			i = line.find(oldstr);
@@ -32,7 +40,8 @@ void	readfd(std::string oldfd, std::string newfd, std::string oldstr, std::strin
 			line.insert(i, newstr);
 		}
 		fd2 << line << std::endl;
-		std::getline(fd, line);
+		if (fd.eof())
+			break;
 	}
 	fd.close();
 	fd2.close();

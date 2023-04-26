@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 10:21:38 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 10:21:57 by masla-la         ###   ########.fr       */
+/*   Created: 2023/04/26 11:00:19 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/26 11:00:19 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "ClapTrap.hpp"
 
-Weapon::Weapon(void)
+int	main( void )
 {
-}
+	ClapTrap cl4ptp("cl4ptp");
 
-Weapon::~Weapon(void)
-{
-}
-
-Weapon::Weapon(std::string name)
-{
-	this->_type = name;
-}
-
-std::string	const &Weapon::getType(void)
-{
-	return (this->_type);
-}
-
-void	Weapon::setType(std::string type)
-{
-	this->_type = type;
+	cl4ptp.attack("Handsome Jack");
+	cl4ptp.takeDamage(6);
+	cl4ptp.beRepaired(4);
+	cl4ptp.takeDamage(3);
+	cl4ptp.beRepaired(8);
+	cl4ptp.takeDamage(17);
 }

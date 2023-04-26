@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:22:13 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/26 12:43:54 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl(void)
@@ -14,12 +26,12 @@ void	Harl::complain(std::string level)
 	int			i;
 	int			n;
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 6; i++)
 	{
 		if (lvl[i] == level)
 			break;
 	}
-	for(n = i;n < 4; n++)
+	for(n = i;n < 4 || n == 6; n++)
 	{
 		switch (n)
 		{
@@ -38,6 +50,7 @@ void	Harl::complain(std::string level)
 			case 3:
 				error();
 				break;
+				
 			default:
 				other();
 				break;
@@ -47,6 +60,7 @@ void	Harl::complain(std::string level)
 
 void	Harl::debug(void)
 {
+	std::cout << std::endl;
 	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << std::endl;
 	std::cout << "I love having extra bacon for my ";
@@ -56,6 +70,7 @@ void	Harl::debug(void)
 
 void	Harl::info(void)
 {
+	std::cout << std::endl;
 	std::cout << "[ INFO ]" << std::endl;
 	std::cout << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. ";
@@ -65,6 +80,7 @@ void	Harl::info(void)
 
 void	Harl::warning(void)
 {
+	std::cout << std::endl;
 	std::cout << "[ WARNING ]" << std::endl;
 	std::cout << std::endl;
 	std::cout << "I think I deserve to have some extra bacon for free.";
@@ -74,6 +90,7 @@ void	Harl::warning(void)
 
 void	Harl::error(void)
 {
+	std::cout << std::endl;
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << std::endl;
 	std::cout << "This is unacceptable! ";
@@ -82,5 +99,6 @@ void	Harl::error(void)
 
 void	Harl::other(void)
 {
+	std::cout << std::endl;
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
