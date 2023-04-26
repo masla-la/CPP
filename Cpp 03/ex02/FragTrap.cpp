@@ -6,19 +6,33 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:00:11 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 11:00:12 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:28:06 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(void): ClapTrap()
+{
+	this->_name = "Default";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+	std::cout << "FragTrap " << this->_name << " created" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name): ClapTrap()
 {
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
-	std::cout << this->_name << " created" << std::endl;
+	std::cout << "FragTrap " << this->_name << " created" << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap const &FragTrap): ClapTrap(FragTrap)
+{
+	*this = FragTrap;
 }
 
 FragTrap::~FragTrap(void)

@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:24:18 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 11:02:07 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:11:18 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 ClapTrap::ClapTrap(void)
 {
 	this->_name = "Default";
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
 	std::cout << this->_name << " created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
 	std::cout << this->_name << " created" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &ClapTrap)
+{
+	*this = ClapTrap;
 }
 
 ClapTrap::~ClapTrap(void)

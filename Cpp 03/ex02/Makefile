@@ -1,6 +1,6 @@
 NAME = main
 
-FILES = main ClapTrap ScavTrap
+FILES = main ClapTrap ScavTrap FragTrap
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

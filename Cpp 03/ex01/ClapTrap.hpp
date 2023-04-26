@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:24:20 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 10:31:39 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:22:50 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 
 		std::string	_name;
 		int	_hitPoints;
@@ -29,7 +29,7 @@ class	ClapTrap
 
 		ClapTrap( void );
 		ClapTrap( std::string name );
-		ClapTrap( ClapTrap &ClapTrap);
+		ClapTrap( ClapTrap const &ClapTrap);
 		~ClapTrap( void );
 		void attack( const std::string& target );
 		void takeDamage( unsigned int amount );

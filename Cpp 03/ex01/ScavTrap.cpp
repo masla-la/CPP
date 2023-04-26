@@ -1,0 +1,94 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 13:00:12 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/26 13:22:08 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(void): ClapTrap()
+{
+	_name = "Default";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
+	_protect = false;
+	std::cout << "ScavTrap "<< this->_name << " created" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name): ClapTrap()
+{
+	_name = name;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
+	_protect = false;
+	std::cout << "ScavTrap "<< this->_name << " created" << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap const &ScavTrap): ClapTrap(ScavTrap)
+{
+	*this = ScavTrap;
+}
+
+ScavTrap::~ScavTrap(void)
+{
+	std::cout << "ScavTrap " << this->_name << " is destroy" << std::endl;
+}
+
+void	ScavTrap::guardGate(void)
+{
+	if (!_protect)
+	{
+		_protect = true;
+		std::cout << "ScavTrap " << _name << " is now guardian the gate" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << _name << " is already guardian the gate" << std::endl;
+
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_energyPoints && _hitPoints)
+	{
+
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing ";
+		std::cout << _attackDamage << " points of damage!" << std::endl;
+		_energyPoints--;
+	}
+	else if (_energyPoints)
+		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
+	else
+		std::cout << "ScavTrap " << _name << " has no energy" << std::endl;
+}
+
+void	ScavTrap::takeDamage(unsigned int amount)
+{
+	if (_hitPoints)
+	{
+		std::cout << "ScavTrap " << _name << " take " << amount << " points of damage" << std::endl;
+		_hitPoints -= amount;
+		if (_hitPoints <= 0)
+			std::cout << "ScavTrap " << _name << " die" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
+}
+
+void	ScavTrap::beRepaired(unsigned int amount)
+{
+	if (_hitPoints)
+	{
+		std::cout << "ScavTrap " << _name << " recover " << amount << " life points" << std::endl;
+		_hitPoints += amount;
+	}
+	else
+		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
+}
