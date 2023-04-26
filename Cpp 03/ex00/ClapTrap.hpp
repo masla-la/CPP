@@ -10,8 +10,8 @@ class	ClapTrap
 
 		std::string	_name;
 		int	_hitPoints = 10;
-		int	_EnergyPoints = 10;
-		int	_AttackDamage = 0;
+		int	_energyPoints = 10;
+		int	_attackDamage = 0;
 
 	public:
 

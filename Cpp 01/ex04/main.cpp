@@ -55,5 +55,4 @@ int	main(int ac, char **av)
 	newstr = av[3];
 	newfd = oldfd + ".replace";
 	readfd(oldfd, newfd, oldstr, newstr);
-	system("leaks main");
 }
