@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 10:21:49 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 09:26:46 by masla-la         ###   ########.fr       */
+/*   Created: 2023/04/26 11:00:19 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/28 10:29:34 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HARL_HPP_
-# define _HARL_HPP_
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-# include <iostream>
-# include <string>
-
-class	Harl
+int	main( void )
 {
-	private:
-	
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-	void other( void );
-	
-	public:
+	ClapTrap cl4ptp("cl4ptp");
+	ScavTrap ST;
+	DiamondTrap DT;
 
-	Harl( void );
-	~Harl( void );
-	void complain( std::string level );
+	DT.whoAmI();
 
-};
+	cl4ptp.attack("Handsome Jack");
+	cl4ptp.takeDamage(6);
+	cl4ptp.beRepaired(4);
+	cl4ptp.takeDamage(3);
+	cl4ptp.beRepaired(8);
+	cl4ptp.takeDamage(17);
+	ST.guardGate();
+	ST.attack("adada");
 
-#endif
+	DT.attack("12312312321");
+}

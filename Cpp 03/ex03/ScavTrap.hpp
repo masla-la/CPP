@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 10:21:49 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 09:26:46 by masla-la         ###   ########.fr       */
+/*   Created: 2023/04/26 12:55:06 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/28 10:12:22 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HARL_HPP_
-# define _HARL_HPP_
+#ifndef _SCAVTRAP_HPP_
+# define _SCAVTRAP_HPP_
 
-# include <iostream>
-# include <string>
+# include "ClapTrap.hpp"
 
-class	Harl
+class	ScavTrap: public virtual ClapTrap
 {
 	private:
-	
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-	void other( void );
-	
+
+		bool	_protect;
+
 	public:
 
-	Harl( void );
-	~Harl( void );
-	void complain( std::string level );
+		ScavTrap( void );
+		ScavTrap( std::string name );
+		ScavTrap( ScavTrap const &ScavTrap);
+		~ScavTrap( void );
+		void attack( const std::string& target );
+		void takeDamage( unsigned int amount );
+		void beRepaired( unsigned int amount );
+		void guardGate( void );
 
 };
 

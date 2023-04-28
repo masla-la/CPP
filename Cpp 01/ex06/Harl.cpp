@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:22:13 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 12:43:54 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/04/28 09:27:35 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	Harl::debug(void)
 	std::cout << "I love having extra bacon for my ";
 	std::cout << "7XL-double-cheese-triple-picklespecial-ketchup burger. ";
 	std::cout << "I really do!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::info(void)
@@ -76,6 +77,7 @@ void	Harl::info(void)
 	std::cout << "I cannot believe adding extra bacon costs more money. ";
 	std::cout << "You didn’t put enough bacon in my burger! ";
 	std::cout << "If you did, I wouldn’t be asking for more!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::warning(void)
@@ -86,6 +88,7 @@ void	Harl::warning(void)
 	std::cout << "I think I deserve to have some extra bacon for free.";
 	std::cout << "I’ve been coming for years whereas you started working here since last month.";
 	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::error(void)
@@ -95,10 +98,12 @@ void	Harl::error(void)
 	std::cout << std::endl;
 	std::cout << "This is unacceptable! ";
 	std::cout << "I want to speak to the manager now." << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::other(void)
 {
 	std::cout << std::endl;
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	std::cout << std::endl;
 }

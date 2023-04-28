@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 10:21:49 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 09:26:46 by masla-la         ###   ########.fr       */
+/*   Created: 2023/04/26 10:24:20 by masla-la          #+#    #+#             */
+/*   Updated: 2023/04/26 13:22:50 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HARL_HPP_
-# define _HARL_HPP_
+#ifndef _CLAPTRAP_HPP_
+# define _CLAPTRAP_HPP_
 
 # include <iostream>
 # include <string>
 
-class	Harl
+class	ClapTrap
 {
-	private:
-	
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-	void other( void );
-	
+	protected:
+
+		std::string	_name;
+		int	_hitPoints;
+		int	_energyPoints;
+		int	_attackDamage;
+
 	public:
 
-	Harl( void );
-	~Harl( void );
-	void complain( std::string level );
+		ClapTrap( void );
+		ClapTrap( std::string name );
+		ClapTrap( ClapTrap const &ClapTrap);
+		~ClapTrap( void );
+		void attack( const std::string& target );
+		void takeDamage( unsigned int amount );
+		void beRepaired( unsigned int amount );
 
 };
 

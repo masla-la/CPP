@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:00:11 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 10:24:48 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/04/28 10:23:14 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ FragTrap::FragTrap(FragTrap const &FragTrap): ClapTrap(FragTrap)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "FragTrap " << this->_name << " is destroy" << std::endl;
+	std::cout << "FragTrap " <<  this->_name << " is destroy" << std::endl;
 }
 
 void	FragTrap::attack(const std::string& target)
