@@ -1,6 +1,6 @@
 NAME = main
 
-FILES = main Fixed
+FILES = main Fixed Point bsp
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

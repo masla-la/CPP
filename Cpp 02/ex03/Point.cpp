@@ -16,6 +16,10 @@ Point::Point(float const x, float const y): x(x), y(y)
 {
 }
 
+Point::~Point(void)
+{
+}
+
 Point	&Point::operator=(Point &obj)
 {
 	return (obj);

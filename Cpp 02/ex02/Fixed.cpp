@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:24:51 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 11:58:51 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:24:42 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ int		Fixed::operator!=(Fixed const & obj)const
 
 Fixed	Fixed::operator+(Fixed const & obj)const
 {
-	Fixed dest((this->getRawBits() + obj.getRawBits()));
+	Fixed dest((this->toFloat() + obj.toFloat()));
 	return (dest);
 }
 
 Fixed	Fixed::operator-(Fixed const & obj)const
 {
-	Fixed dest((this->getRawBits() - obj.getRawBits()));
+	Fixed dest((this->toFloat() - obj.toFloat()));
 	return (dest);
 }
 
