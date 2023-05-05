@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:55:06 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 13:17:24 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:48:31 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ class	ScavTrap: public ClapTrap
 
 		ScavTrap( void );
 		ScavTrap( std::string name );
-		ScavTrap( ScavTrap const &ScavTrap);
+		ScavTrap( ScavTrap const &ScavTrap );
+		ScavTrap &operator=( ScavTrap const &ScavTrap );
 		~ScavTrap( void );
 		void attack( const std::string& target );
-		void takeDamage( unsigned int amount );
-		void beRepaired( unsigned int amount );
 		void guardGate( void );
 
 };

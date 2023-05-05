@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:24:20 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 13:11:27 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:08:02 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class	ClapTrap
 		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( ClapTrap const &ClapTrap);
+		ClapTrap &operator=( ClapTrap const & obj);
 		~ClapTrap( void );
 		void attack( const std::string& target );
 		void takeDamage( unsigned int amount );

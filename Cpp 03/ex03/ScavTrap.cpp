@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:00:12 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 13:22:08 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:59:07 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ ScavTrap::ScavTrap(std::string name): ClapTrap()
 ScavTrap::ScavTrap(ScavTrap const &ScavTrap): ClapTrap(ScavTrap)
 {
 	*this = ScavTrap;
+}
+
+ScavTrap &ScavTrap::operator=( ScavTrap const & obj)
+{
+	_name = obj._name;
+	_attackDamage = obj._attackDamage;
+	_hitPoints = obj._hitPoints;
+	_energyPoints = obj._energyPoints;
+	_protect = obj._protect;
+	return (*this);
 }
 
 ScavTrap::~ScavTrap(void)
@@ -67,28 +77,4 @@ void	ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
 	else
 		std::cout << "ScavTrap " << _name << " has no energy" << std::endl;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	if (_hitPoints)
-	{
-		std::cout << "ScavTrap " << _name << " take " << amount << " points of damage" << std::endl;
-		_hitPoints -= amount;
-		if (_hitPoints <= 0)
-			std::cout << "ScavTrap " << _name << " die" << std::endl;
-	}
-	else
-		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
-}
-
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	if (_hitPoints)
-	{
-		std::cout << "ScavTrap " << _name << " recover " << amount << " life points" << std::endl;
-		_hitPoints += amount;
-	}
-	else
-		std::cout << "ScavTrap " << _name << " is dead" << std::endl;
 }

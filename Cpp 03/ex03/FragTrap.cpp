@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:00:11 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 10:23:14 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:58:18 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,48 +35,18 @@ FragTrap::FragTrap(FragTrap const &FragTrap): ClapTrap(FragTrap)
 	*this = FragTrap;
 }
 
+FragTrap &FragTrap::operator=( FragTrap const & obj)
+{
+	_name = obj._name;
+	_attackDamage = obj._attackDamage;
+	_hitPoints = obj._hitPoints;
+	_energyPoints = obj._energyPoints;
+	return (*this);
+}
+
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap " <<  this->_name << " is destroy" << std::endl;
-}
-
-void	FragTrap::attack(const std::string& target)
-{
-	if (_energyPoints && _hitPoints)
-	{
-
-		std::cout << "FragTrap " << _name << " attacks " << target << ", causing ";
-		std::cout << _attackDamage << " points of damage!" << std::endl;
-		_energyPoints--;
-	}
-	else if (_energyPoints)
-		std::cout << "FragTrap " << _name << " is dead" << std::endl;
-	else
-		std::cout << "FragTrap " << _name << " has no energy" << std::endl;
-}
-
-void	FragTrap::takeDamage(unsigned int amount)
-{
-	if (_hitPoints)
-	{
-		std::cout << "FragTrap " << _name << " take " << amount << " points of damage" << std::endl;
-		_hitPoints -= amount;
-		if (_hitPoints <= 0)
-			std::cout << "FragTrap " << _name << " die" << std::endl;
-	}
-	else
-		std::cout << "FragTrap " << _name << " is dead" << std::endl;
-}
-
-void	FragTrap::beRepaired(unsigned int amount)
-{
-	if (_hitPoints)
-	{
-		std::cout << "FragTrap " << _name << " recover " << amount << " life points" << std::endl;
-		_hitPoints += amount;
-	}
-	else
-		std::cout << "FragTrap " << _name << " is dead" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)

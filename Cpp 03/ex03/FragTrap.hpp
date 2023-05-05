@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:00:13 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/28 10:12:30 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 12:00:03 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@ class	FragTrap: public virtual ClapTrap
 
 		FragTrap( void );
 		FragTrap( std::string name );
-		FragTrap( FragTrap const &FragTrap);
+		FragTrap( FragTrap const &FragTrap );
+		FragTrap &operator=( FragTrap const & obj );
 		~FragTrap( void );
-		void attack( const std::string& target );
-		void takeDamage( unsigned int amount );
-		void beRepaired( unsigned int amount );
 		void highFivesGuys( void );
 
 };

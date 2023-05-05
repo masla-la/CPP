@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:24:18 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 13:13:43 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:56:24 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ ClapTrap::ClapTrap(ClapTrap const &ClapTrap)
 {
 	*this = ClapTrap;
 }
+
+ClapTrap &ClapTrap::operator=( ClapTrap const & obj)
+{
+	_name = obj._name;
+	_attackDamage = obj._attackDamage;
+	_hitPoints = obj._hitPoints;
+	_energyPoints = obj._energyPoints;
+	return (*this);
+}
+
 
 ClapTrap::~ClapTrap(void)
 {
