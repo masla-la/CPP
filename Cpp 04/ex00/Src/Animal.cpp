@@ -1,12 +1,13 @@
-#include "Inc/Animal.hpp"
+#include "../Inc/Animal.hpp"
 
 Animal::Animal(void)
 {
+	type = "Animal";
 }
 
 Animal::Animal(std::string str)
 {
-	this->type = str;
+	type = str;
 }
 
 Animal::Animal(Animal const & Animal)
@@ -20,16 +21,16 @@ Animal	&Animal::operator=(Animal const & obj)
 	return (*this);
 }
 
-Animal::Animal(void)
+Animal::~Animal(void)
 {
 }
 
-std::string	Animal::getType(void)
+std::string	Animal::getType(void)const
 {
 	return (type);
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void)const
 {
-	std::cout << "" << std::endl;
+	std::cout << "Animal sound?" << std::endl;
 }

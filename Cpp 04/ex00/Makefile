@@ -1,7 +1,10 @@
 NAME = main
 
-FILES = main Cat Dog
+A = Cat Dog Animal WrongCat WrongAnimal
 
+FILES = main $(ASRC)
+
+ASRC = $(addprefix Src/, $(A))
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
@@ -16,9 +19,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@mkdir	Obj
+	@mv $(OBJ) Obj/
 	@echo "Done"
 
 clean:
+	@$(RM) Obj/
 	@$(RM) $(OBJ)
 	@echo "Clean"
 

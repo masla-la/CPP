@@ -5,19 +5,19 @@
 
 class	Dog: public Animal
 {
-	protected:
+	private:
 
-		std::string type;
+		std::string	type;
 
 	public:
 
 		Dog( void );
-		Dog( std::string );
+		Dog( std::string str );
 		Dog( Dog const & Dog );
 		Dog &operator=( Dog const & obj );
 		~Dog( void );
-		std::string	getType( void );
-		void	makeSound( void );
+		std::string	getType( void ) const;
+		void	makeSound( void ) const;
 
 };
 

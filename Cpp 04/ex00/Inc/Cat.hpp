@@ -5,19 +5,19 @@
 
 class	Cat: public Animal
 {
-	protected:
+	private:
 
-		std::string type;
+		std::string	type;
 
 	public:
 
 		Cat( void );
-		Cat( std::string );
+		Cat( std::string str );
 		Cat( Cat const & Cat );
 		Cat &operator=( Cat const & obj );
 		~Cat( void );
-		std::string	getType( void );
-		void	makeSound( void );
+		std::string	getType( void ) const;
+		void	makeSound( void ) const;
 
 };
 
