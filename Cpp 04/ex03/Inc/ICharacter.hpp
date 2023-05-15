@@ -11,15 +11,8 @@ class AMateria;
 class ICharacter
 {
 
-	protected:
-
-		AMateria const *Inventory;
-
 	public:
-		ICharacter( void );
-		ICharacter( ICharacter const & ICharacter );
-		ICharacter &operator=( ICharacter const & obj );
-		
+
 		virtual ~ICharacter( void ) {}
 		virtual std::string const & getName( void ) const = 0;
 		virtual void equip( AMateria* m ) = 0;
