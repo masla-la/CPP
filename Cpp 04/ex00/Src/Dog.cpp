@@ -3,19 +3,19 @@
 Dog::Dog(void)
 {
 	type = "Dog";
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Dog::Dog(std::string str)
 {
 	type = str;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Dog::Dog(Dog const & Dog)
 {
 	*this = Dog;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Dog	&Dog::operator=(Dog const & obj)
@@ -26,7 +26,7 @@ Dog	&Dog::operator=(Dog const & obj)
 
 Dog::~Dog(void)
 {
-	std::cout << type << " destroy." << std::endl;
+	std::cout << type << " destroy" << std::endl;
 }
 
 std::string	Dog::getType(void)const

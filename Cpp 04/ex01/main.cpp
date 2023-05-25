@@ -4,27 +4,15 @@
 #include "Inc/WrongAnimal.hpp"
 #include "Inc/WrongCat.hpp"
 
-int main()
+int main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	Cat	*C1 = new Cat();
+	Cat *C2 = new Cat();
 
-	const WrongAnimal	*WA = new WrongAnimal;
-	const WrongCat		*WC = new WrongCat;
+	C1->setIdea(1, "12213");
+	std::cout << C1->getIdea(1) << std::endl;
+	C2 = C1;
+	std::cout << C2->getIdea(1) << std::endl;
 
-	WA->makeSound();
-	WC->makeSound();
-
-	delete meta;
-	delete j;
-	delete i;
-	delete WA;
-	delete WC;
-	return 0;
+	delete C1;
 }

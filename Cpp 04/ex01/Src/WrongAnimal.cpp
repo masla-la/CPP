@@ -3,18 +3,18 @@
 WrongAnimal::WrongAnimal(void)
 {
 	type = "WrongAnimal";
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string str)
 {
 	type = str;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 WrongAnimal::WrongAnimal(WrongAnimal const & WrongAnimal)
 {
 	*this = WrongAnimal;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const & obj)
@@ -25,7 +25,7 @@ WrongAnimal	&WrongAnimal::operator=(WrongAnimal const & obj)
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << type << " destroy." << std::endl;
+	std::cout << type << " destroy" << std::endl;
 }
 
 void	WrongAnimal::makeSound(void)const

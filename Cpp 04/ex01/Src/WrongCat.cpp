@@ -3,19 +3,19 @@
 WrongCat::WrongCat(void)
 {
 	type = "WrongCat";
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 WrongCat::WrongCat(std::string str)
 {
 	type = str;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const &WrongCat)
 {
 	*this = WrongCat;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 WrongCat	&WrongCat::operator=(WrongCat const &obj)
@@ -26,7 +26,7 @@ WrongCat	&WrongCat::operator=(WrongCat const &obj)
 
 WrongCat::~WrongCat(void)
 {
-	std::cout << type << " destroy." << std::endl;
+	std::cout << type << " destroy" << std::endl;
 }
 
 void	WrongCat::makeSound(void)const

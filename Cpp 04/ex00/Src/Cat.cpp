@@ -3,19 +3,19 @@
 Cat::Cat(void)
 {
 	type = "Cat";
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Cat::Cat(std::string str)
 {
 	type = str;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Cat::Cat(Cat const & Cat)
 {
 	*this = Cat;
-	std::cout << type << " created." << std::endl;
+	std::cout << type << " created" << std::endl;
 }
 
 Cat	&Cat::operator=(Cat const & obj)
@@ -26,7 +26,7 @@ Cat	&Cat::operator=(Cat const & obj)
 
 Cat::~Cat(void)
 {
-	std::cout << type << " destroy." << std::endl;
+	std::cout << type << " destroy" << std::endl;
 }
 
 std::string Cat::getType(void)const

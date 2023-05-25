@@ -19,12 +19,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	@mkdir	Obj
-	@mv $(OBJ) Obj/
 	@echo "Done"
 
 clean:
-	@$(RM) Obj/
 	@$(RM) $(OBJ)
 	@echo "Clean"
 
