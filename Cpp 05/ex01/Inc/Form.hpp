@@ -20,7 +20,7 @@ class	Form
 	public:
 
 		Form( void );
-		Form( std::string name, bool sign, const int gradeTooSign, const int gradeTooExec);
+		Form( std::string name, bool sign, const int gradeTooSign, const int gradeTooExec );
 		Form( Form const & Form);
 		Form &operator=( Form const & obj);
 		~Form( void );

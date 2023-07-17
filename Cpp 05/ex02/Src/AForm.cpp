@@ -44,12 +44,17 @@ const	int	AForm::getGTE(void)const
 
 const char	*AForm::GradeTooHighException::what(void)const throw()
 {
-	return "Grade too Low";
+	return "Grade too High";
 }
 
 const char	*AForm::GradeTooLowException::what(void)const throw()
 {
-	return "Grade too High";
+	return "Grade too Low";
+}
+
+const char	*AForm::NoSignedException::what(void)const throw()
+{
+	return "Form no singed";
 }
 
 void	AForm::beSigned(Bureaucrat &obj)
@@ -91,6 +96,29 @@ std::ostream	&operator<<( std::ostream &  ost, AForm & obj )
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > getGTS())
+	if (this->_signed == false)
+	{
+		try
+		{
+			throw	NoSignedException();
+		}
+		catch(const std::exception& exp)
+		{
+			std::cerr << exp.what() << std::endl;
+		}
 		return ;
+	}
+	if (executor.getGrade() > this->_gradeTooExec)
+	{
+		try
+		{
+			throw	GradeTooLowException();
+		}
+		catch(const std::exception& exp)
+		{
+			std::cerr << exp.what() << std::endl;
+		}
+		return ;
+	}
+	this->executeForm(executor);
 }

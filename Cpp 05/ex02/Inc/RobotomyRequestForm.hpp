@@ -3,23 +3,17 @@
 
 # include "AForm.hpp"
 
-//class	AForm;
-
 class	RobotomyRequestForm: public AForm
 {
-
-	private:
-
-		AForm	*	_form;
 
 	public:
 
 		RobotomyRequestForm( void );
 		RobotomyRequestForm( std::string target );
 		RobotomyRequestForm( RobotomyRequestForm const & RRF );
-		~RobotomyRequestForm( void );
+		virtual ~RobotomyRequestForm( void );
 		RobotomyRequestForm	&operator=( RobotomyRequestForm const & obj );
-		virtual void execute(Bureaucrat const & executor) const
+		virtual void executeForm( Bureaucrat const & executor ) const;
 
 };
 

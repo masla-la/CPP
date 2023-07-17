@@ -3,22 +3,17 @@
 
 # include "AForm.hpp"
 
-//class	AForm;
-
 class	PresidentialPardonForm: public AForm
 {
-
-	private:
-	
-		AForm	*	_form;
 
 	public:
 
 		PresidentialPardonForm( void );	
 		PresidentialPardonForm( std::string target );
 		PresidentialPardonForm( PresidentialPardonForm const & PPF );
-		~PresidentialPardonForm( void );
+		virtual ~PresidentialPardonForm( void );
 		PresidentialPardonForm	&operator=( PresidentialPardonForm const & obj );
+		virtual void executeForm( Bureaucrat const & executor ) const;
 
 };
 

@@ -4,26 +4,28 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
+	AForm("ShrubberyCreationForm", false, 72, 45)
 {
-	_form = new AForm("ShrubberyCreationForm", false, 145, 137);
 	std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &SCF)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &SCF):
+	AForm(SCF.getName(), SCF.getSigned(), SCF.getGTS(), SCF.getGTE())
 {
-	delete _form;
-	_form = new AForm(*SCF._form);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	delete _form;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm const &obj)
 {
-	delete _form;
-	_form = new AForm(*obj._form);
 	return *this;
 }
+
+void	ShrubberyCreationForm::executeForm(Bureaucrat const & executor)const
+{
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+}
+

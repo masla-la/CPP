@@ -4,29 +4,31 @@ PresidentialPardonForm::PresidentialPardonForm(void)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target):
+	AForm("PresidentialPardonForm", false, 145, 137)
 {
 	std::ofstream	fd(target + "_shrubbery");
-	
-	_form = new AForm("PresidentialPardonForm", false, 145, 137);
+
 	fd << "ASCII TREE" << std::endl;
 	fd.close();
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &PPF)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &PPF):
+	AForm(PPF.getName(), PPF.getSigned(), PPF.getGTS(), PPF.getGTE())
 {
-	delete _form;
-	_form = new AForm(*PPF._form);
+
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	delete _form;
 }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm const &obj)
 {
-	delete _form;
-	_form = new AForm(*obj._form);
 	return *this;
+}
+
+void	PresidentialPardonForm::executeForm(Bureaucrat const & executor)const
+{
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }

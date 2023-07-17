@@ -16,15 +16,12 @@ int	main()
 
 	std::cout << "----------------------" << std::endl;
 
-	Bureaucrat	Z("Z", 1);
-	AForm		obj("Fo", false, 1, 1);
-	Z.GradeDec();
-	Z.signForm(obj);
-	Z.signForm(obj);
-	std::cout << obj << std::endl;
-
-	std::cout << "----------------------" << std::endl;
-
 	RobotomyRequestForm	P("123");
+
+	P.execute(A);
+	P.beSigned(A);
+	P.execute(B);
+	P.execute(A);
+
 	return 0;
 }

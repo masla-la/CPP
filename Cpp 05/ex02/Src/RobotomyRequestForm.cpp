@@ -4,9 +4,9 @@ RobotomyRequestForm::RobotomyRequestForm(void)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target):
+	AForm("RobotomyRequestForm", false, 145, 137)
 {
-	_form = new AForm("RobotomyRequestForm", false, 145, 137); 
 	srand((unsigned)time(NULL));
 	if (rand() % 2)
 		std::cout << target << " has been robotomized successfully 50% of the time" << std::endl;
@@ -14,20 +14,21 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 		std::cout << "The robotomy failed" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &RRF)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &RRF): 
+	AForm(RRF.getName(), RRF.getSigned(), RRF.getGTS(), RRF.getGTE())
 {
-	delete _form;
-	_form = new AForm(*RRF._form);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-	delete _form;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &obj)
 {
-	delete _form;
-	_form = new AForm(*obj._form);
 	return *this;
+}
+
+void	RobotomyRequestForm::executeForm(Bureaucrat const & executor)const
+{
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }
