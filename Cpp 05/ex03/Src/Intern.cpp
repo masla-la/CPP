@@ -23,7 +23,7 @@ Form	*Intern::makeForm(std::string name, std::string target)
 
 	i = 0;
 	std::string	formName[3] = 
-			{"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+			{"shrubbery creation", "robotomy request", "presidential pardon"};
 	while (name != formName[i] && i != 3)
 		i++;
 	switch (i)
