@@ -14,10 +14,10 @@ class	Bureaucrat
 
 		std::string const	_name;
 		int			_grade;
+		Bureaucrat( void );
 
 	public:
 
-		Bureaucrat( void );
 		Bureaucrat( std::string const & name, int grade );
 		Bureaucrat( Bureaucrat const & Bureaucrat );
 		Bureaucrat	&operator=( Bureaucrat const & obj);

@@ -16,10 +16,10 @@ class	Form
 		bool				_signed;
 		const	int			_gradeTooSign;
 		const	int			_gradeTooExec;
+		Form( void );
 
 	public:
 
-		Form( void );
 		Form( std::string name, bool sign, const int gradeTooSign, const int gradeTooExec );
 		Form( Form const & Form);
 		Form &operator=( Form const & obj);
