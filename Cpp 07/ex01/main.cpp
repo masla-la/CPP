@@ -1,15 +1,21 @@
 #include "Inc/Iter.hpp"
 
-void	ft_add(int a)
+template<typename T>
+void	write(T const &t)
 {
-	a++;
+	std::cout << t << std::endl;
 }
 
 int	main()
 {
-	int	addr[5] = { 1, 2, 3, 4, 5 };
-	int	len = 5;
+	char	addr3[3]= { '1', '2', '3' };
+	std::string	addr[5] = { "abc", "bca", "cba", "ef", "fe" };
+	int			addr2[5] = { 5, 4, 3, 2, 1 };
+	int			len = 5;
 
-	::iter(addr, len, ft_add);
+	iter(addr, len, write);
+	iter(addr2, len, write);
+	iter(addr3, 3, write);
+
 	return 0;
 }

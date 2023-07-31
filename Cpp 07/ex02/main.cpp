@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Array.hpp>
+#include "Inc/Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -15,6 +15,7 @@ int main(int, char**)
     }
     //SCOPE
     {
+		std::cout << "123\n";//--------------------------
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }

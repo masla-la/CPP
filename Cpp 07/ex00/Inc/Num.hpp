@@ -11,7 +11,7 @@ void	swap(T a, T b)
 	c = a;
 	a = b;
 	b = c;
-};
+}
 
 template<typename T>
 T	min(T a, T b)
