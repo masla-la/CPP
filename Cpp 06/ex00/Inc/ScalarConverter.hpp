@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 
 class ScalarConverter
 {
@@ -33,6 +35,7 @@ class ScalarConverter
 		bool	float_check( std::string str );
 		bool	int_check( std::string str );
 		bool	char_check( std::string str );
+		bool	other_check( std::string str );
 
 };
 

@@ -75,14 +75,19 @@ void	ScalarConverter::cast_char(std::string str)
 
 void	ScalarConverter::cast_int(std::string str)
 {
-	int	dest = stoi(str);
+	double	dest = stod(str);
 
 	std::cout << "< INT >" << std::endl;
-	if (dest > 32 && dest < 127)
+	if (dest < 0 || dest > 255)
+		std::cout << "char: Overflow" << std::endl;
+	else if (dest > 32 && dest < 127)
 		std::cout << "char: '" << static_cast<char>(dest) << '\'' << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << dest << std::endl;
+	if (static_cast<double>(dest) < MIN_INT || static_cast<double>(dest) > MAX_INT)
+		std::cout << "int: Imposible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(dest) << std::endl;
 	std::cout << "foat: " << static_cast<float>(dest) << 'f' << std::endl;
 	std::cout << "double: " << static_cast<double>(dest) << std::endl;
 }
@@ -92,6 +97,8 @@ void	ScalarConverter::cast_float(std::string str)
 	float	dest = stof(str);
 
 	std::cout << "< FLOAT >" << std::endl;
+	if (dest < 0 || dest > 255)
+		std::cout << "char: Overflow" << std::endl;
 	if (dest > 32 && dest < 127)
 		std::cout << "char: '" << static_cast<char>(dest) << '\'' << std::endl;
 	else
@@ -110,18 +117,32 @@ void	ScalarConverter::cast_double(std::string str)
 		std::cout << "char: '" << static_cast<char>(dest) << '\'' << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << static_cast<int>(dest) << std::endl;
+	if (static_cast<double>(dest) < MIN_INT || static_cast<double>(dest) > MAX_INT)
+		std::cout << "int: Imposible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(dest) << std::endl;
 	std::cout << "foat: " << static_cast<float>(dest) << 'f' << std::endl;
 	std::cout << "double: " << dest << std::endl;
 }
 
 void	ScalarConverter::cast_other(std::string str)
 {
+	double	dest = stod(str);
+	std::cout << "< OTHER >" << std::endl;
+	std::cout << "char: Imposible" << std::endl;
+	std::cout << "int: Imposible" << std::endl;
+	std::cout << "float: " << static_cast<float>(dest);
+	if (str == "nan" || str == "nanf")
+		std::cout << 'f';
+	std::cout << std::endl;
+	std::cout << "double: " << dest << std::endl;
 }
 
 std::string	ScalarConverter::check_cast(std::string str)
 {
-	if (int_check(str))
+	if (other_check(str))
+		return "OTHER";
+	else if (int_check(str))
 		return "INT";
 	else if (float_check(str))
 		return "FLOAT";
@@ -202,5 +223,14 @@ bool	ScalarConverter::int_check(std::string str)
 
 bool	ScalarConverter::char_check(std::string str)
 {
+	if (str.length() > 1)
+		return false;
 	return true;
+}
+
+bool	ScalarConverter::other_check(std::string str)
+{
+	if (str == "nan" || str == "nanf" || str == "-inf" || str == "+inf" || str == "inf")
+		return true;
+	return false;
 }
