@@ -21,9 +21,10 @@ class	Array
 		~Array( void );
 
 		Array<T>	& operator=( Array<T> const & obj );
-		T		& operator[]( unsigned int i );
+		T			& operator[]( unsigned int i );
 
 		unsigned int	size( void );
+		T				getArray( unsigned int i );
 
 		class	SizeOverflowException: public std::exception
 		{
@@ -49,11 +50,9 @@ Array<T>::Array( unsigned int n )
 template<typename T>
 Array<T>::Array(Array const &obj)
 {
+	_array = new T [obj._size];
 	for (unsigned int i = 0; i < obj._size; i++)
-	{
-		_array[i] = *new T();
 		_array[i] = obj._array[i];
-	}
 	_size = obj._size;
 }
 
@@ -79,14 +78,7 @@ T	&Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
 	{
-		try
-		{
-			throw SizeOverflowException();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		throw	SizeOverflowException();
 	}
 	return _array[i];
 }
@@ -98,9 +90,23 @@ unsigned int	Array<T>::size(void)
 }
 
 template<typename T>
+T	Array<T>::getArray(unsigned int i)
+{
+	return _array[i];
+}
+
+template<typename T>
 const char	*Array<T>::SizeOverflowException::what(void)const throw()
 {
 	return "Grade too Low";
+}
+
+template<typename T>
+std::ostream	&operator<<(std::ostream &os, Array<T> &obj)
+{
+	for (unsigned int i = 0; i < obj.size(); i++)
+		os << obj.getArray(i) << std::endl;
+	return os;
 }
 
 #endif

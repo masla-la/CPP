@@ -15,7 +15,6 @@ int main(int, char**)
     }
     //SCOPE
     {
-		std::cout << "123\n";//--------------------------
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
