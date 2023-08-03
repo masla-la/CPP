@@ -98,7 +98,7 @@ T	Array<T>::getArray(unsigned int i)
 template<typename T>
 const char	*Array<T>::SizeOverflowException::what(void)const throw()
 {
-	return "Grade too Low";
+	return "Size overflow";
 }
 
 template<typename T>

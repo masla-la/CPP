@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:22:55 by masla-la          #+#    #+#             */
-/*   Updated: 2023/04/26 10:23:10 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/08/03 12:02:22 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 int		Account::checkAmount(void) const
 {
 	return (0);
-}//?????????????????????
+}
 
 void	Account::displayStatus(void) const
 {
