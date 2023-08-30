@@ -21,10 +21,10 @@ class Span
 
 		Span			&operator=( Span const & obj );
 		
-		//unsigned int 	operator[]( unsigned int i );
+		unsigned int 	operator[]( unsigned int i );
 		
 		void			addNumber( unsigned int num );
-		unsigned int	shortestSpan( void );
+		unsigned int	shorterSpan( void );
 		unsigned int	longestSpan( void );
 		
 		class	SizeOverflowException: public std::exception

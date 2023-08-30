@@ -10,7 +10,7 @@ Span::Span(unsigned int n)
 {
 	if (n < 1)
 		throw	SizeOverflowException();//
-	_n = std::vector<int>(n);
+	//_n = std::vector<int>(n);
 	_size = n;
 }
 
@@ -33,25 +33,46 @@ Span	&Span::operator=(Span const & obj)
 
 void	Span::addNumber(unsigned int num)
 {
-	if (_size < 1 || _n.begin() == _n.end())
-		throw	SizeOverflowException();
+	if (_size < 1 || _n.size() == _size)
+		throw	SizeOverflowException();//
 	_n.insert(_n.begin(), num);
-
-	//-------
-	std::vector<int>::iterator	it;
-	it = _n.begin();
-	for(it = _n.begin(); it < _n.end(); it++)
-		std::cout << *it << std::endl;
 }
 
-unsigned int	Span::shortestSpan(void)
+unsigned int	Span::shorterSpan(void)
 {
-	return 0;
+	if (_n.size() < 2)
+		throw	SizeOverflowException();// 
+	
+	unsigned int	num;
+
+	num = *max_element(_n.begin(), _n.end());
+	for (int i = 0; i < _n.size(); i++)
+	{
+		for (int n = 0; n < _n.size(); n++)
+		{
+			if (_n[i] - _n[n] < num && _n[i] > _n[n])
+				num = _n[i] - _n[n];
+			if (_n[n] - _n[i] < num && _n[i] < _n[n])
+				num = _n[n] - _n[i];
+		}
+	}
+	return (num);
 }
 
 unsigned int	Span::longestSpan(void)
 {
-	return 0;
+	if (_n.size() < 2)
+		throw	SizeOverflowException();//
+	unsigned int	num;
+	num = *max_element(_n.begin(), _n.end()) - *min_element(_n.begin(), _n.end());
+	return num;
+}
+
+unsigned int	Span::operator[](unsigned int i)
+{
+	if (i > _n.size())
+		throw	SizeOverflowException();
+	return _n[i];
 }
 
 const char	*Span::SizeOverflowException::what(void)const throw()

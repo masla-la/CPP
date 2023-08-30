@@ -2,7 +2,7 @@
 
 /*int	main()
 {
-	Span<int>	sp(10000);
+	Span	sp(10000);
 
 	try
 	{
@@ -12,7 +12,6 @@
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	for (int i = 0; i < 9000; i++)
 		sp.addNumber(10);
 	sp.addNumber(20);
@@ -41,7 +40,7 @@ int main()
 	sp.addNumber(9);
 	sp.addNumber(11);
 	
-	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.shorterSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	return 0;
 }
