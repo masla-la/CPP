@@ -10,7 +10,6 @@ Span::Span(unsigned int n)
 {
 	if (n < 1)
 		throw	SizeOverflowException();//
-	//_n = std::vector<int>(n);
 	_size = n;
 }
 
@@ -79,3 +78,5 @@ const char	*Span::SizeOverflowException::what(void)const throw()
 {
 	return "Size overflow";
 }
+
+//revisar exceptions
