@@ -1,6 +1,6 @@
-NAME = main
+NAME = btc
 
-A =
+A = BitcoinExchange
 
 FILES = main\
 		$(ASRC)

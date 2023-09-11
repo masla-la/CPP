@@ -27,7 +27,6 @@ int main()
 	std::list<int>::iterator ite = mstack.end();
 
 	++it;
-	std::cout << "123\n";
 	--it;
 
 	while (it != ite)
