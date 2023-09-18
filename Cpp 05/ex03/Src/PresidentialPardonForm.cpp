@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 09:49:22 by masla-la          #+#    #+#             */
+/*   Updated: 2023/09/14 09:49:22 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Inc/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void):

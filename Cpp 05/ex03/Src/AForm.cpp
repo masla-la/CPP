@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 09:49:14 by masla-la          #+#    #+#             */
+/*   Updated: 2023/09/14 09:58:11 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Inc/AForm.hpp"
 
 Form::Form(void): _name("Default"), _signed(false), _gradeTooSign(150), _gradeTooExec(150)
@@ -83,7 +95,7 @@ void	Form::beSigned(Bureaucrat &obj)
 std::ostream	&operator<<( std::ostream &  ost, Form & obj )
 {
 	std::string	sign;
-	if (obj.getSigned())
+	if (obj.getSigned() == false)
 		sign = "False";
 	else
 		sign = "True";

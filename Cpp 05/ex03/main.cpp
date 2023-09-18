@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 09:49:29 by masla-la          #+#    #+#             */
+/*   Updated: 2023/09/14 09:59:26 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Inc/Bureaucrat.hpp"
 #include "Inc/Intern.hpp"
 
@@ -23,7 +35,7 @@ int	main()
 
 	Intern	it;
 
-	it.makeForm("ShrubberyCreationForm", "123");
+	it.makeForm("shrubbery creation", "123");
 
 	return 0;
 }

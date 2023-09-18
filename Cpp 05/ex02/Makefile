@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/09/14 09:48:53 by masla-la          #+#    #+#              #
+#    Updated: 2023/09/14 09:48:54 by masla-la         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = main
 
 A =	Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 09:48:25 by masla-la          #+#    #+#             */
+/*   Updated: 2023/09/14 09:55:51 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef _BUREAUCRAT_HPP_
 # define _BUREAUCRAT_HPP_
 
@@ -5,7 +17,7 @@
 # include <string>
 # include "AForm.hpp"
 
-class	AForm;
+class	Form;
 
 class	Bureaucrat
 {

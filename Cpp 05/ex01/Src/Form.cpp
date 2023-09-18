@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 09:48:06 by masla-la          #+#    #+#             */
+/*   Updated: 2023/09/14 09:54:27 by masla-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Inc/Form.hpp"
 
 Form::Form(void): _name("Default"), _signed(false), _gradeTooSign(150), _gradeTooExec(150)
@@ -44,12 +56,12 @@ const	int	Form::getGTE(void)const
 
 const char	*Form::GradeTooHighException::what(void)const throw()
 {
-	return "Grade too Low";
+	return "Grade too High";
 }
 
 const char	*Form::GradeTooLowException::what(void)const throw()
 {
-	return "Grade too High";
+	return "Grade too Low";
 }
 
 void	Form::beSigned(Bureaucrat &obj)
@@ -78,7 +90,7 @@ void	Form::beSigned(Bureaucrat &obj)
 std::ostream	&operator<<( std::ostream &  ost, Form & obj )
 {
 	std::string	sign;
-	if (obj.getSigned())
+	if (obj.getSigned() == false)
 		sign = "False";
 	else
 		sign = "True";
