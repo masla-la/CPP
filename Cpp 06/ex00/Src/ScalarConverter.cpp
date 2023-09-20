@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:49:47 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:49:48 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:52:01 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ScalarConverter::cast_char(std::string str)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(dest) << std::endl;
-	std::cout << "foat: " << static_cast<float>(dest) << std::endl;
+	std::cout << "float: " << static_cast<float>(dest) << std::endl;
 	std::cout << "double: " << static_cast<double>(dest) << std::endl;
 }
 
@@ -100,7 +100,7 @@ void	ScalarConverter::cast_int(std::string str)
 		std::cout << "int: Imposible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(dest) << std::endl;
-	std::cout << "foat: " << static_cast<float>(dest) << 'f' << std::endl;
+	std::cout << "float: " << static_cast<float>(dest) << 'f' << std::endl;
 	std::cout << "double: " << static_cast<double>(dest) << std::endl;
 }
 
@@ -116,7 +116,7 @@ void	ScalarConverter::cast_float(std::string str)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(dest) << std::endl;
-	std::cout << "foat: " << dest << 'f' << std::endl;
+	std::cout << "float: " << dest << 'f' << std::endl;
 	std::cout << "double: " << static_cast<double>(dest) << std::endl;
 }
 
@@ -133,7 +133,7 @@ void	ScalarConverter::cast_double(std::string str)
 		std::cout << "int: Imposible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(dest) << std::endl;
-	std::cout << "foat: " << static_cast<float>(dest) << 'f' << std::endl;
+	std::cout << "float: " << static_cast<float>(dest) << 'f' << std::endl;
 	std::cout << "double: " << dest << std::endl;
 }
 

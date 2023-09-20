@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:50:15 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:50:16 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:52:14 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int ac, char **av)
 
 	std::cout << "b: " << b << " -> " << b->getData() << std::endl;
 
+	delete a;
 	return 0;
 }
