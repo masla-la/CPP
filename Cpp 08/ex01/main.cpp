@@ -6,13 +6,13 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:48 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:51:48 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:52:52 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inc/Span.hpp"
 
-/*int	main()
+int	main()
 {
 	Span	sp(10000);
 
@@ -40,9 +40,9 @@
 	
 	std::cout << sp[2000] << '\n';
 	return 0;
-}*/
+}
 
-int main()
+/*int main()
 {
 	Span sp = Span(5);
 
@@ -55,4 +55,4 @@ int main()
 	std::cout << sp.shorterSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	return 0;
-}
+}*/

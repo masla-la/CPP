@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:50:39 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:50:40 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:48:07 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 
 template<typename T>
-void	swap(T a, T b)
+void	swap(T & a, T & b)
 {
 	T	c;
 	c = a;
