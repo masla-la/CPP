@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:19 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:51:19 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:10:58 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ class	Array
 template<typename T>
 Array<T>::Array(void)
 {
-	_array[0] = new T;
 	_size = 0;
 }
 
@@ -71,13 +70,15 @@ Array<T>::Array(Array const &obj)
 template<typename T>
 Array<T>::~Array(void)
 {
-	delete [] _array;
+	if (_size > 0)
+		delete [] _array;
 }
 
 template<typename T>
 Array<T>	&Array<T>::operator=(Array const &obj)
 {
-	delete [] _array;
+	if (_size > 0)
+		delete [] _array;
 	_array = new T[obj._size];
 	for (unsigned int i = 0; i < obj._size; i++)
 		_array[i] = obj._array[i];
