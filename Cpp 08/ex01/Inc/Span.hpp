@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:42 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:51:42 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/27 11:19:22 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ class Span
 			public:
 				virtual const char *	what( void ) const throw();
 		};
+		
+		class	ShorterException: public std::exception
+		{
+			public:
+				virtual const char *	what( void ) const throw();
+		};
+		
+		class	LongestException: public std::exception
+		{
+			public:
+				virtual const char *	what( void ) const throw();
+		};
+		
 		
 };
 

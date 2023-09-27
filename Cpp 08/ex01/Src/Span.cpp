@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:45 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:51:45 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/09/27 11:20:27 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Span::Span(void)
 {
-	_n = std::vector<int>();//
+	_n = std::vector<int>();
 	_size = 0;
 }
 
 Span::Span(unsigned int n)
 {
 	if (n < 1)
-		throw	SizeOverflowException();//
+		throw	SizeOverflowException();
 	_size = n;
 }
 
@@ -45,14 +45,14 @@ Span	&Span::operator=(Span const & obj)
 void	Span::addNumber(unsigned int num)
 {
 	if (_size < 1 || _n.size() == _size)
-		throw	SizeOverflowException();//
+		throw	SizeOverflowException();
 	_n.insert(_n.begin(), num);
 }
 
 unsigned int	Span::shorterSpan(void)
 {
 	if (_n.size() < 2)
-		throw	SizeOverflowException();// 
+		throw	ShorterException();
 	
 	unsigned int	num;
 
@@ -73,7 +73,7 @@ unsigned int	Span::shorterSpan(void)
 unsigned int	Span::longestSpan(void)
 {
 	if (_n.size() < 2)
-		throw	SizeOverflowException();//
+		throw	LongestException();
 	unsigned int	num;
 	num = *max_element(_n.begin(), _n.end()) - *min_element(_n.begin(), _n.end());
 	return num;
@@ -81,7 +81,7 @@ unsigned int	Span::longestSpan(void)
 
 unsigned int	Span::operator[](unsigned int i)
 {
-	if (i > _n.size())
+	if (i > _n.size() || i < 0)
 		throw	SizeOverflowException();
 	return _n[i];
 }
@@ -91,4 +91,12 @@ const char	*Span::SizeOverflowException::what(void)const throw()
 	return "Size overflow";
 }
 
-//revisar exceptions
+const char	*Span::ShorterException::what(void)const throw()
+{
+	return "Shorter Error";
+}
+
+const char	*Span::LongestException::what(void)const throw()
+{
+	return "Longest Error";
+}
