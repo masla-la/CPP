@@ -6,11 +6,11 @@
 #    By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 13:09:36 by masla-la          #+#    #+#              #
-#    Updated: 2023/09/18 13:09:36 by masla-la         ###   ########.fr        #
+#    Updated: 2023/09/28 11:01:55 by masla-la         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = main
+NAME = PmergeMe
 
 A =  PmergeMe
 

@@ -11,4 +11,4 @@ int	main(int ac, char **av)
 	btc.setData(av[2]);
 	btc.proccessInput(av[1]);
 	return 0;
-}h
+}
