@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:32 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/14 10:51:33 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:48:22 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 # include <iostream>
 # include <array>
+# include <vector>
 
 template<typename T>
 bool	easyfind(T &t, int cmp)
 {
-	for (unsigned int i = 0; t[i]; i++)
-		if (t[i] == cmp)
-			return true;
-	return false;
+	typename T::iterator it = std::find(t.begin(), t.end(), cmp);
+	if (!*it)
+		return false;
+	return true;
 }
 
 #endif
