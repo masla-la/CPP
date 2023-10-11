@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:42 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/27 11:19:22 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:19:19 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <vector>
+# include <iterator>
 
 class Span
 {
@@ -36,6 +37,7 @@ class Span
 		unsigned int 	operator[]( unsigned int i );
 		
 		void			addNumber( unsigned int num );
+		void			addNRandNumber( unsigned int n, unsigned int rang, unsigned int rang2 );
 		unsigned int	shorterSpan( void );
 		unsigned int	longestSpan( void );
 		
@@ -56,7 +58,12 @@ class Span
 			public:
 				virtual const char *	what( void ) const throw();
 		};
-		
+
+		class	WrongRangException: public std::exception
+		{
+			public:
+				virtual const char *	what( void ) const throw();
+		};
 		
 };
 

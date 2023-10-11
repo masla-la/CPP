@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:58 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/18 13:09:59 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:52:41 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,6 @@ void	BTC::setData(char *file)
 		std::getline(fd, line);
 		if (!line.empty() && isdigit(line[0]))
 		{
-			/*tmp = line;
-			tmp.erase(tmp.find(","), tmp.length());
-			line.erase(0, line.find(",") + 1);*/
 			std::getline(fd, tmp, ',');
 			std::getline(fd, line);
 			_data[tmp] = std::stof(line);

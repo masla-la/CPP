@@ -6,11 +6,13 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:36 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/02 11:50:09 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:55:35 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inc/easyfind.hpp"
+
+#include <map>
 
 int	main()
 {
@@ -27,5 +29,13 @@ int	main()
 	std::cout << easyfind(arr, cmp) << std::endl;
 	std::cout << easyfind(arr2, cmp) << std::endl;
 	std::cout << easyfind(arr3, cmp) << std::endl;
+
+	std::map<int, int> m;
+
+	//
+	for (unsigned int i = 0; i < 15; i++)
+		m[i] = i;
+	std::cout << easyfind(m, cmp) << std::endl;
+	
 	return 0;
 }

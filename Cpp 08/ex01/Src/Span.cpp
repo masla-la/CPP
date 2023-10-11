@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:45 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/27 11:20:27 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:37:41 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ void	Span::addNumber(unsigned int num)
 	if (_size < 1 || _n.size() == _size)
 		throw	SizeOverflowException();
 	_n.insert(_n.begin(), num);
+}
+
+void	Span::addNRandNumber(unsigned int n, unsigned int rang, unsigned int rang2)
+{
+	if (rang < 0 || rang2 < 0 || rang > rang2)
+		throw	WrongRangException();
+	srand((unsigned)time(NULL));
+	for (unsigned int z = 0; z < n; z++)
+		addNumber(rang + rand() % (rang2 - rang));
 }
 
 unsigned int	Span::shorterSpan(void)
@@ -99,4 +108,9 @@ const char	*Span::ShorterException::what(void)const throw()
 const char	*Span::LongestException::what(void)const throw()
 {
 	return "Longest Error";
+}
+
+const char	*Span::WrongRangException::what(void)const throw()
+{
+	return	"Wrong Range Error";
 }
