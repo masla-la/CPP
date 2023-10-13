@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:48 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/11 11:40:45 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:04:33 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main()
 
 	try
 	{
-		sp.addNRandNumber(9000, 1, 100);
+		sp.addNumber(9000, 1, 100);
 	}
 	catch(const std::exception& e)
 	{

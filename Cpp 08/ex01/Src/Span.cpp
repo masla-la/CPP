@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:51:45 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/11 11:37:41 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:04:03 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Span::addNumber(unsigned int num)
 	_n.insert(_n.begin(), num);
 }
 
-void	Span::addNRandNumber(unsigned int n, unsigned int rang, unsigned int rang2)
+void	Span::addNumber(unsigned int n, unsigned int rang, unsigned int rang2)
 {
 	if (rang < 0 || rang2 < 0 || rang > rang2)
 		throw	WrongRangException();
@@ -58,7 +58,7 @@ void	Span::addNRandNumber(unsigned int n, unsigned int rang, unsigned int rang2)
 		addNumber(rang + rand() % (rang2 - rang));
 }
 
-unsigned int	Span::shorterSpan(void)
+/*unsigned int	Span::shorterSpan(void)
 {
 	if (_n.size() < 2)
 		throw	ShorterException();
@@ -77,6 +77,26 @@ unsigned int	Span::shorterSpan(void)
 		}
 	}
 	return (num);
+}*/
+
+unsigned int	Span::shorterSpan(void)
+{
+	if (_n.size() < 2)
+		throw	ShorterException();
+
+	std::vector<int>	cpy = _n;
+
+	std::sort(cpy.begin(), cpy.end());
+	
+	std::vector<int>::iterator	tmp;
+	unsigned int i = *(cpy.begin() + 1) - *cpy.begin();
+
+	for (tmp = (cpy.begin() + 1); tmp != cpy.end(); tmp++)
+	{
+		if (i > *(tmp + 1) - *tmp)
+			i = *(tmp + 1) - *tmp;
+	}
+	return (i);
 }
 
 unsigned int	Span::longestSpan(void)
