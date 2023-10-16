@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:33 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/18 13:09:34 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:01:26 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,17 @@ class Pmerge
 		~Pmerge( void );
 		Pmerge	&operator=( Pmerge const & obj );
 
-		void	shortVec( void );
-		void	shortDeq( void );
+		void	shortAll( void );
 		void	printStacks( void );
+
+		void	vecInsert( int start, int end );
+		void	vecMerge( int start, int mid, int end );
+		void	shortVec( int stat, int end );
+		
+		void	deqInsert( int start, int end );
+		void	deqMerge( int start, int mid, int end );
+		void	shortDeq( int start, int end );
+		
 
 };
 

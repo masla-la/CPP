@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:28 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/28 10:56:04 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:09:27 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,48 +75,144 @@ void	Pmerge::printStacks(void)
 		std::cout << " " << _deq.at(i);;
 	}
 	std::cout << std::endl;
-	std::cout << "Time to process a range of" << _vec.size() << " elements with std::Vector : " << _vecTime << " us" << std::endl;//
-	std::cout << "Time to process a range of" << _deq.size() << " elements with std::Deque : " << _deqTime << " us" << std::endl;//
+	std::cout << "Time to process a range of " << _vec.size() << " elements with std::Vector : " << _vecTime << " us" << std::endl;//
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::Deque : " << _deqTime << " us" << std::endl;//
 }
 
-void	Pmerge::shortVec(void)
+void	Pmerge::vecMerge(int start, int mid, int end)
 {
-	unsigned int	b;
+	int		l1 = mid - start + 1;
+	int		r1 = end - mid;
+	int		l2 = 0;
+	int		r2 = 0;
+
+	std::vector<int> l(_vec.begin() + start, _vec.begin() + mid + 1);
+	std::vector<int> r(_vec.begin() + 1 + mid, _vec.begin() + end + 1);
+	
+	for (int i = start; i <= end; i++)
+	{
+		if (r2 == r1)
+		{
+			_vec[i] = l[l2];
+			l2++;
+		}
+		else if (l2 == l1)
+		{
+			_vec[i] = r[r2];
+			r2++;
+		}
+		else if (r[r2] > l[l2])
+		{
+			_vec[i] = l[l2];
+			l2++;
+		}
+		else
+		{
+			_vec[i] = r[r2];
+			r2++;
+		}
+	}
+}
+
+void	Pmerge::vecInsert(int start, int end)
+{
+	for(int i = start; i < end; i++)
+	{
+		int tmp = _vec[i + 1];
+		int j = i + 1;
+		while (j > start && _vec[j - 1] > tmp)
+		{
+			_vec[j] = _vec[j - 1];
+			j--;
+		}
+		_vec[j] = tmp;
+	}
+}
+
+void	Pmerge::shortVec(int start, int end)
+{
+	if (end - start > 5)
+	{
+		int mid = (start + end) / 2;
+		shortVec(start, mid);
+		shortVec(mid + 1, end);
+		vecMerge(start, mid, end);
+	}
+	else
+		vecInsert(start, end);
+}
+
+void	Pmerge::deqMerge(int start, int mid, int end)
+{
+	int	l1 = mid - start + 1;
+	int	r1 = end - mid;
+	int	l2 = 0;
+	int	r2 = 0;
+
+	std::deque<int>	l(_deq.begin() + start, _deq.begin() + mid + 1);
+	std::deque<int>	r(_deq.begin() + mid + 1, _deq.begin() + end + 1);
+	for(int i = start; i <= end ; i++)
+	{
+		if (r2 == r1)
+		{
+			_deq[i] = l[l2];
+			l2++;
+		}
+		else if (l2 == l1)
+		{
+			_deq[i] = r[r2];
+			r2++;
+		}
+		else if (r[r2] > l[l2])
+		{
+			_deq[i] = l[l2];
+			l2++;
+		}
+		else
+		{
+			_deq[i] = r[r2];
+			r2++;
+		}
+	}
+}
+
+void	Pmerge::deqInsert(int start, int end)
+{
+	for(int i = start; i < end; i++)
+	{
+		int	tmp = _deq[i + 1];
+		int	j = i + 1;
+		while(j > start && _deq[j - 1] > tmp)
+		{
+			_deq[j] = _deq[j - 1];
+			j--;
+		}
+		_deq[j] = tmp;
+	}
+}
+
+void	Pmerge::shortDeq(int start, int end)
+{
+	if (start - end > 5)
+	{
+		int	mid = (start + end) / 2;
+		shortDeq(start, mid);
+		shortDeq(mid + 1, end);
+		deqMerge(start, mid, end);
+	}
+	else
+		deqInsert(start, end);
+
+}
+
+void	Pmerge::shortAll(void)
+{
 	clock_t			time;
 
 	time = std::clock();
-	for (unsigned int i = 0; i < _vec.size(); i++)
-	{
-		for (unsigned int n = 0; n < _vec.size(); n++)
-		{
-			if (_vec[i] < _vec[n])
-			{
-				b = _vec[i];
-				_vec[i] = _vec[n];
-				_vec[n] = b; 
-			}
-		}
-	}
+	shortVec(0, _vec.size() - 1);
 	_vecTime = std::clock() - time;
-}
-
-void	Pmerge::shortDeq(void)
-{
-	unsigned int	b;
-	clock_t			time;
-
 	time = std::clock();
-	for (unsigned int i = 0; i < _deq.size(); i++)
-	{
-		for (unsigned int n = 0; n < _deq.size(); n++)
-		{
-			if (_deq[i] < _deq[n])
-			{
-				b = _deq[i];
-				_deq[i] = _deq[n];
-				_deq[n] = b;
-			}
-		}
-	}
+	shortDeq(0, _deq.size() - 1);
 	_deqTime = std::clock() - time;
 }
