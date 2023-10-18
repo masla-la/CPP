@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:58 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/18 12:16:36 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:30:32 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void	BTC::proccessInput(char *file)
 	}
 	line = "";
 	std::getline(fd, line);
+	if (fd.eof())
+	{
+		std::cout << "Error: empty file." << std::endl;
+		return ;
+	}
 	while (1)
 	{
 		std::getline(fd, line);
@@ -148,11 +153,15 @@ bool	checkInput(std::string input)//falta comprobar el año
 		if (!isdigit(tmp[i]) && tmp[i] != '-')
 			return false;
 	tmp.erase(0, tmp.find("-"));
-	if (stol(tmp) > 12)
-		return false;
 	tmp2 = tmp;
-	tmp2.erase(0, tmp.find("-"));
-	if (std::stod(tmp2) > std::stod(m[stoi(tmp)]))
+	tmp2.erase(0, tmp2.find("-") + 1);
+	tmp = tmp2;
+	tmp.erase(0, tmp.find("-") + 1);
+	tmp2.erase(tmp2.find("-"), tmp2.size());
+	std::cout << std::stod(tmp2) << "123\n"; //----------------------------
+	if (std::stod(tmp2) > 12 || std::stod(tmp2) < 1)
+		return false;
+	if (std::stod(tmp2) > std::stod(m[stoi(tmp) - 1]))
 		return false;
 	return true;
 }
