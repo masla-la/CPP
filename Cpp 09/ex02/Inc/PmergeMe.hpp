@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:33 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/16 12:01:26 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:37:37 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Pmerge
 
 		Pmerge( void );
 		Pmerge( Pmerge const & obj );
-		Pmerge( char *av );
+		Pmerge( char **av );
 		~Pmerge( void );
 		Pmerge	&operator=( Pmerge const & obj );
 

@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:28 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/16 12:09:27 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:40:20 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ Pmerge::Pmerge(Pmerge const &obj)
 	_deq = obj._deq;
 }
 
-Pmerge::Pmerge(char *av)
+Pmerge::Pmerge(char **av)
 {
-	for	(unsigned int i = 0; av[i]; i++)
+	for	(unsigned int i = 1; av[i]; i++)
 	{
-		if (isdigit(av[i]))
-			_vec.insert(_vec.begin(), av[i] - '0');
-		else if (av[i] != ' ')
+		for(unsigned int z = 0; av[i][z] && isdigit(av[i][z]); z++)
 		{
-			_err = true;
-			std::cout << "Error" << std::endl;
-			return;
+			if (z == strlen(av[i]) - 1 && isdigit(av[i][z]))
+				_vec.insert(_vec.begin(), atoi(av[i]));
+			else if (z == strlen(av[i]) - 1 && !isdigit(av[i][z]))
+			{
+				_err = true;
+				std::cout << "Error" << std::endl;
+				return;
+			}
 		}
 	}
-	for (unsigned int i = 0; av[i]; i++)
-	{
-		if (isdigit(av[i]))
-			_deq.insert(_deq.begin(), av[i] - '0');
-	}
+	for (unsigned int i = 1; av[i]; i++)
+		_deq.insert(_deq.begin(), atoi(av[i]));
 	_cpy = _vec;
 }
 

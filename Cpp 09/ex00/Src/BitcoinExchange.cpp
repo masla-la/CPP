@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:58 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/06 12:52:41 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:16:36 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	BTC::proccessInput(char *file)
 	{
 		std::getline(fd, line);
 		tmp = line;
-		if (!checkInput(tmp))
+		if (!checkInput(tmp) || !checkInput2(line))
 		{
 			std::cout << "Error: not a positive number." << std::endl;
 			std::cout << "Error: bad input => " << tmp << std::endl;
@@ -144,6 +144,9 @@ bool	checkInput(std::string input)//falta comprobar el año
 
 	input.erase(11, input.length());
 	tmp = input;
+	for(unsigned int i = 0; i < 10; i++)
+		if (!isdigit(tmp[i]) && tmp[i] != '-')
+			return false;
 	tmp.erase(0, tmp.find("-"));
 	if (stol(tmp) > 12)
 		return false;
@@ -151,5 +154,17 @@ bool	checkInput(std::string input)//falta comprobar el año
 	tmp2.erase(0, tmp.find("-"));
 	if (std::stod(tmp2) > std::stod(m[stoi(tmp)]))
 		return false;
+	return true;
+}
+
+bool	checkInput2(std::string	input)
+{
+	input.erase(0, input.find("|"));
+	input.erase(0, 2);
+	if (input.size() <= 0)
+		return false;
+	for (unsigned int i = 0; i < input.size(); i++)
+		if (!isdigit(input[i]) && input[i] != '.')
+			return false;
 	return true;
 }

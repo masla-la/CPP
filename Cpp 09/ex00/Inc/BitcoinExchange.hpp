@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:56 by masla-la          #+#    #+#             */
-/*   Updated: 2023/09/18 13:09:56 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:53:48 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ class BTC
 };
 
 bool	checkInput(std::string input);
+bool	checkInput2(std::string input);
 
 #endif
