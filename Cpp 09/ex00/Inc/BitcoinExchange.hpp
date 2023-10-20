@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:56 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/19 10:28:11 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:39:34 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ class BTC
 		BTC	& operator=( BTC const & obj );
 		~BTC( void );
 
-		void	setData( char *file );
+		void	setData( std::string file );
 		void	proccessInput( char *file );
 
 };
 
 bool	checkInput(std::string input);
-int	checkInput2(std::string input);
+int		checkInput2(std::string input);
 
 #endif

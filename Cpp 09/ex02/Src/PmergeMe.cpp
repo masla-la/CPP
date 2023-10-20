@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:28 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/18 11:40:20 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:24:44 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	Pmerge::printStacks(void)
 		std::cout << " " << _deq.at(i);;
 	}
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << _vec.size() << " elements with std::Vector : " << _vecTime << " us" << std::endl;//
-	std::cout << "Time to process a range of " << _deq.size() << " elements with std::Deque : " << _deqTime << " us" << std::endl;//
+	std::cout << "Time to process a range of " << _vec.size() << " elements with std::Vector : " << _vecTime * CLOCKS_PER_SEC << " s" << std::endl;//
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::Deque : " << _deqTime * CLOCKS_PER_SEC << " s" << std::endl;//
 }
 
 void	Pmerge::vecMerge(int start, int mid, int end)
@@ -114,32 +114,15 @@ void	Pmerge::vecMerge(int start, int mid, int end)
 	}
 }
 
-void	Pmerge::vecInsert(int start, int end)
-{
-	for(int i = start; i < end; i++)
-	{
-		int tmp = _vec[i + 1];
-		int j = i + 1;
-		while (j > start && _vec[j - 1] > tmp)
-		{
-			_vec[j] = _vec[j - 1];
-			j--;
-		}
-		_vec[j] = tmp;
-	}
-}
-
 void	Pmerge::shortVec(int start, int end)
 {
-	if (end - start > 5)
+	if (end > start)
 	{
 		int mid = (start + end) / 2;
 		shortVec(start, mid);
 		shortVec(mid + 1, end);
 		vecMerge(start, mid, end);
 	}
-	else
-		vecInsert(start, end);
 }
 
 void	Pmerge::deqMerge(int start, int mid, int end)
@@ -176,33 +159,15 @@ void	Pmerge::deqMerge(int start, int mid, int end)
 	}
 }
 
-void	Pmerge::deqInsert(int start, int end)
-{
-	for(int i = start; i < end; i++)
-	{
-		int	tmp = _deq[i + 1];
-		int	j = i + 1;
-		while(j > start && _deq[j - 1] > tmp)
-		{
-			_deq[j] = _deq[j - 1];
-			j--;
-		}
-		_deq[j] = tmp;
-	}
-}
-
 void	Pmerge::shortDeq(int start, int end)
 {
-	if (start - end > 5)
+	if (end > start)
 	{
 		int	mid = (start + end) / 2;
 		shortDeq(start, mid);
 		shortDeq(mid + 1, end);
 		deqMerge(start, mid, end);
 	}
-	else
-		deqInsert(start, end);
-
 }
 
 void	Pmerge::shortAll(void)
@@ -211,8 +176,8 @@ void	Pmerge::shortAll(void)
 
 	time = std::clock();
 	shortVec(0, _vec.size() - 1);
-	_vecTime = std::clock() - time;
+	_vecTime = ((double)(std::clock() - time)) / CLOCKS_PER_SEC;
 	time = std::clock();
 	shortDeq(0, _deq.size() - 1);
-	_deqTime = std::clock() - time;
+	_deqTime = ((double)(std::clock() - time)) / CLOCKS_PER_SEC;
 }

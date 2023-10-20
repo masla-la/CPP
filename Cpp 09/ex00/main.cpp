@@ -2,13 +2,12 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 3)
+	if (ac != 2)
 	{
 		std::cout << "Error: Bad arguments" << std::endl;
 		return 1;
 	}
 	BTC	btc;
-	btc.setData(av[2]);
 	btc.proccessInput(av[1]);
 	return 0;
 }

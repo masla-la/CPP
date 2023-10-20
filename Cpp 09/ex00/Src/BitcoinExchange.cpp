@@ -6,7 +6,7 @@
 /*   By: masla-la <masla-la@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:09:58 by masla-la          #+#    #+#             */
-/*   Updated: 2023/10/19 10:37:58 by masla-la         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:42:54 by masla-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 BTC::BTC(void)
 {
+	setData("data.csv");
 }
 
 BTC::BTC(BTC const & obj)
@@ -36,7 +37,7 @@ BTC	&BTC::operator=(BTC const & obj)
 	return  *this;
 }
 
-void	BTC::setData(char *file)
+void	BTC::setData(std::string file)
 {
 	std::ifstream	fd(file);
 	std::string		line;
@@ -70,6 +71,11 @@ void	BTC::proccessInput(char *file)
 	std::string		tmp;
 	int				i;
 
+	if (_data.empty())
+	{
+		std::cout << "Error: data.csv: Do not exist." << std::endl;
+		return ;
+	}
 	if (!fd)
 	{
 		std::cout << "Error: " << file << ": Do not exist." << std::endl;
