@@ -21,6 +21,8 @@ class	Cat: public Animal
 		std::string	getType( void ) const;
 		void makeSound( void ) const;
 		Brain *getBrain( void ) const;
+		std::string getIdea( int index );
+		void	setIdea( int index, std::string idea );
 
 };
 
